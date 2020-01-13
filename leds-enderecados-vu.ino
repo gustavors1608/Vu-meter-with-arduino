@@ -2,15 +2,15 @@
 
 #define PIN 6
 
-#define NUMLEDS 18
+#define NUMLEDS 18 // numero de leds
 
 Adafruit_NeoPixel leds = Adafruit_NeoPixel(NUMLEDS,PIN,NEO_GRB+NEO_KHZ800);
 
 void setup(){
-  Serial.begin(115200);
+  Serial.begin(115200); // inicia serial
   
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
+  pinMode(A0, INPUT); // pino ligado ao sensor de som
+  pinMode(A1, INPUT); // pino ligado ao potenciometro
 
   leds.begin();
   leds.setBrightness(100);
@@ -18,6 +18,7 @@ void setup(){
 void loop(){
   int intensi = analogRead(A0);
   int set = analogRead(A1);
+  
   Serial.print(intensi);
   Serial.print("  ");
   Serial.println(set);
